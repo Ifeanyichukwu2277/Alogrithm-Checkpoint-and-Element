@@ -1,70 +1,54 @@
-# Sentence Analysis Algorithm
+ 📝 Sentence Analysis Algorithm
 
+> *Read a sentence. Count everything that matters.*
 
-## Description
-A pseudocode algorithm that reads a sentence character by character and analyzes it.
+---
 
+ 🔍 What It Does
 
-## What it does
-Given a sentence ending with a period, the algorithm determines:
-- The **length** of the sentence (number of characters)
-- The **number of words** (detected character by character using a boolean flag)
-- The **number of vowels** (case-insensitive check)
+Drop a sentence and this algorithm will instantly tell you:
 
-## Algorithm
+| Metric | Description |
+|--------|-------------|
+| 📏 Length | Total number of characters |
+| 📖 Words  | Total number of words      |
+| 🔤 Vowels | Total number of vowels     |
+
+---
+
+ ⚙️ How It Works
+
+- Reads the sentence **one character at a time**
+- Detects words using a **boolean flag** instead of counting spaces
+- Handles vowels with a **lowercase conversion** to keep checks minimal
+- Stops reading when it hits a **period (.)**
+
+---
+
+ 💡 Example
+
+**Input:**
 ```
-ALGORITHM SentenceAnalysis
-VAR
-    c       : CHARACTER
-    length  : INTEGER
-    words   : INTEGER
-    vowels  : INTEGER
-    inWord  : BOOLEAN
-BEGIN
-    length ← 0
-    words  ← 0
-    vowels ← 0
-    inWord ← FALSE
-
-    WRITE("Enter a sentence ending with a point: ")
-
-    REPEAT
-        READ(c)
-        IF (c ≠ '.') THEN
-            length ← length + 1
-            IF (c ≠ ' ') THEN
-                IF (inWord = FALSE) THEN
-                    words  ← words + 1
-                    inWord ← TRUE
-                END IF
-            ELSE
-                inWord ← FALSE
-            END IF
-            IF LOWERCASE(c) IN ['a','e','i','o','u'] THEN
-                vowels ← vowels + 1
-            END IF
-        END IF
-    UNTIL (c = '.')
-
-    WRITE("Length  : ", length)
-    WRITE("Words   : ", words)
-    WRITE("Vowels  : ", vowels)
-END
+" i am looking for a city with a true foundation."
 ```
-
-## Example
-**Input:** `Welcome to YUMYUM.`
 
 **Output:**
 ```
-Length  : 17
-Words   : 3
-Vowels  : 6
+Length  : 48
+Words   : 9
+Vowels  : 18
 ```
 
-## Key Concepts
-- Characters are read one by one
-- Words are counted using a `BOOLEAN` flag (`inWord`) instead of counting spaces
-- Vowel check uses `LOWERCASE()` to reduce comparisons from 10 down to 5
-- The period is not counted in the length
+---
+
+ 🧠 Key Concepts
+
+- `inWord` flag detects the **moment we step into a new word**
+- `LOWERCASE()` reduces vowel comparisons from **10 down to 5**
+- The **period is never counted** in the length
+- A **leading space** counts toward length but not word count
+
+---
+
+*Built as part of an Algorithm Checkpoint — pseudocode implementation.*
 ```
