@@ -77,6 +77,6 @@ END
 
 // output 
 
-Length  : 48
-Words   : 9
-Vowels  : 18
+Length of the sentence  : 48
+number of Words   : 9
+number of vowels Vowels  : 18
